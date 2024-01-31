@@ -10,7 +10,7 @@ function Article() {
     <article>
       <h2 className="article__title">Form</h2>
       <label htmlFor="name">Name</label>
-      <input type="text" id="name"></input>
+      <input type="text" id="name" />
       <a href="https://www.google.com" className="article__link">
         Google
       </a>
