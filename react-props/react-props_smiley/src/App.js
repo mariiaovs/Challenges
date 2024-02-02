@@ -13,7 +13,11 @@ export default function App() {
 function Smiley({ isHappy }) {
   return (
     <div>
-      <span>{isHappy ? "🙂" : "🙁"}</span>
+      {isHappy ? (
+        <span aria-label="happy emoji">🙂</span>
+      ) : (
+        <span aria-label="sad emoji">🙁</span>
+      )}
     </div>
   );
 }
