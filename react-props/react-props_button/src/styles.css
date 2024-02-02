@@ -10,3 +10,11 @@ body {
   display: flex;
   justify-content: center;
 }
+
+button {
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
