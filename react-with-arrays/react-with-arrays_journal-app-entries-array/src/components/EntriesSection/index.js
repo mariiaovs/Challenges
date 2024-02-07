@@ -55,6 +55,7 @@ export default function EntriesSection() {
               notes={entry.notes}
             />
             {index < entries.length - 1 && <Divider />}
+            {/* {index < entries.length - 1 ? <Divider /> : ""} */}
           </>
         ))}
       </div>
