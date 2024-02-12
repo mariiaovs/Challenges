@@ -2,34 +2,36 @@ import { useEffect, useState } from "react";
 
 export default function PokemonList() {
   const [pokemon, setPokemon] = useState([]);
-  const [page, setPage] = useState(0);
+  const [URL, setURL] = useState(
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
+  );
+  const [nextURL, setNextURL] = useState(
+    "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+  );
+  const [prevURL, setPrevURL] = useState(null);
 
   useEffect(() => {
     async function loadPokemon() {
       try {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon?offset=${page}`
-        );
+        const response = await fetch(URL);
         const data = await response.json();
         setPokemon(data.results);
-        //console.log(data);
+        setNextURL(data.next);
+        setPrevURL(data.previous);
       } catch (error) {
         console.log(error);
       }
     }
 
     loadPokemon();
-  }, [page]);
+  }, [URL]);
 
   return (
     <main>
-      <button type="button" onClick={() => (page > 1 ? setPage(page - 1) : 0)}>
+      <button type="button" onClick={() => setURL(prevURL)}>
         Previous Page
       </button>
-      <button
-        type="button"
-        onClick={() => (page < 1302 / 20 ? setPage(page + 1) : 0)}
-      >
+      <button type="button" onClick={() => setURL(nextURL)}>
         Next Page
       </button>
       <ul>
