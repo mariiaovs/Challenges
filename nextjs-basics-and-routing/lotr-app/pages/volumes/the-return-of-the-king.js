@@ -20,10 +20,11 @@ export default function Volume1() {
       </ul>
       <Image
         src={data.cover}
-        height={140}
-        width={230}
+        height={230}
+        width={140}
         alt="A cover of the Volume"
       />
+      <br />
       <Link href="/volumes/the-two-towers">Previous Volume</Link>
     </>
   );

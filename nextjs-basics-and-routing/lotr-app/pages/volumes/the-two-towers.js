@@ -20,10 +20,11 @@ export default function Volume1() {
       </ul>
       <Image
         src={data.cover}
-        height={140}
-        width={230}
+        height={230}
+        width={140}
         alt="A cover of the Volume"
       />
+      <br />
       <Link href="/volumes/the-fellowship-of-the-ring">Previous Volume</Link>
       <Link href="/volumes/the-return-of-the-king">Next Volume</Link>
     </>
