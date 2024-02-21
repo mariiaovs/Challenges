@@ -2,7 +2,7 @@ import Link from "next/link";
 import { volumes } from "../../resources/lib/data";
 import Image from "next/image";
 
-export default function Volume1() {
+export default function Volume2() {
   const data = volumes.find(({ slug }) => slug === "the-return-of-the-king");
 
   return (
