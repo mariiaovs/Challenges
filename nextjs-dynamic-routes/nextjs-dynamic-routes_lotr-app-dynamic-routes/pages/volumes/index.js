@@ -5,6 +5,7 @@ import Head from "next/head";
 
 export default function Volumes() {
   const router = useRouter();
+  console.log(router);
 
   function getRandomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -25,7 +26,7 @@ export default function Volumes() {
       <p>{introduction}</p>
       <ul>
         {volumes.map((volume) => (
-          <li key={volume.id}>
+          <li key={volume.slug}>
             <Link href={`/volumes/${volume.slug}`}>{volume.title}</Link>
           </li>
         ))}
