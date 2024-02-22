@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { introduction, volumes } from "../../lib/data";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function Volumes() {
   const router = useRouter();
@@ -16,6 +17,10 @@ export default function Volumes() {
 
   return (
     <>
+      <Head>
+        <title>The Lord of the Rings</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h1>The Lord of the Rings</h1>
       <p>{introduction}</p>
       <ul>

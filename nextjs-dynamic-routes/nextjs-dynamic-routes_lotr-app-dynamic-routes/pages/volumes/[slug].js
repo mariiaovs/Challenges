@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { volumes } from "../../lib/data.js";
 import { useRouter } from "next/router.js";
+import Head from "next/head.js";
 
 export default function VolumeDetail() {
   const router = useRouter();
@@ -20,6 +21,10 @@ export default function VolumeDetail() {
 
   return (
     <>
+      <Head>
+        <title>{volume.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Link href="/volumes">← All Volumes</Link>
       <h1>{title}</h1>
       <p>{description}</p>
