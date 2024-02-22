@@ -5,7 +5,6 @@ import Head from "next/head";
 
 export default function Volumes() {
   const router = useRouter();
-  console.log(router);
 
   function getRandomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
