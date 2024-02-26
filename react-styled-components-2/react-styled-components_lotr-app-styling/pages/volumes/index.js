@@ -4,10 +4,19 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
-  background-color: var(--color-clouds);
   height: 100vh;
   margin: 0;
   padding: 1rem;
+
+  @media (prefers-color-scheme: light) {
+    background-color: var(--color-clouds);
+    color: var(--color-earth);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-smoke);
+    background-color: var(--color-earth);
+  }
 `;
 
 const StyledList = styled.ul`
@@ -33,7 +42,7 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledLink = styled(Link)`
-  color: inherit;
+  color: unset;
   text-decoration: inherit;
 `;
 
