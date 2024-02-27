@@ -17,7 +17,8 @@ export default function App({ Component, pageProps }) {
   const [lights, setLights] = useState(initialLights);
 
   let isDimmed = lights.filter((light) => light.isOn).length === 0;
-  let isAllLightsOn = lights.filter((light) => light.isOn).length === 8;
+  let areAllLightsOn = lights.filter((light) => light.isOn).length === 8;
+  let areAllLightsOff = lights.filter((light) => light.isOn).length === 0;
 
   function toggleLightsOn() {
     setLights(lights.map((light) => ({ ...light, isOn: true })));
@@ -34,7 +35,6 @@ export default function App({ Component, pageProps }) {
       )
     );
   }
-  console.log(isDimmed);
 
   return (
     <Layout isDimmed={isDimmed}>
@@ -45,7 +45,8 @@ export default function App({ Component, pageProps }) {
         toggleLight={toggleLight}
         toggleLightsOn={toggleLightsOn}
         toggleLightsOff={toggleLightsOff}
-        isAllLightsOn={isAllLightsOn}
+        areAllLightsOn={areAllLightsOn}
+        areAllLightsOff={areAllLightsOff}
       />
     </Layout>
   );
