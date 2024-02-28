@@ -30,7 +30,7 @@ export default function Character() {
 
   console.log(data);
 
-  if (error) return <h1>Loading failed...</h1>;
+  if (error) return <h1>Loading failed... {error}</h1>;
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
