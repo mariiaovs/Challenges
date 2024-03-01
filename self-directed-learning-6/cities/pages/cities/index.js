@@ -10,9 +10,9 @@ const StyledListElement = styled.li`
   padding: 1rem;
   width: 10rem;
   border-radius: 0.5rem;
-  background-color: rgb(${({ $num }) => $num * 255}, 100, 100);
-  color: rgb(${({ $num }) => 255 - $num * 255}, 0, 0);
-  text-shadow: white 2px 2px 5px;
+  background-color: hsl(${({ $num }) => $num * 360}, 100%, 50%);
+  color: hsl(${({ $num }) => 360 - $num * 360}, 100%, 50%);
+  text-shadow: black 1px 1px 2px;
 `;
 
 const StyledHeading = styled.h1`
@@ -28,7 +28,7 @@ export default function CitiesPage() {
       </Head>
       <StyledHeading>Cities</StyledHeading>
       <ul>
-        {cities.map((city, index, cities) => (
+        {cities.map((city) => (
           <StyledListElement $num={city.id / cities.length} key={city.id}>
             <StyledLink href={`/cities/${city.slug}`}>{city.name}</StyledLink>
           </StyledListElement>

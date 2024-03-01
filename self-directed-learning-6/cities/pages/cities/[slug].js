@@ -19,7 +19,6 @@ export default function City() {
   }
   const { slug } = router.query;
   const city = cities.find((city) => city.slug === slug);
-  console;
 
   return (
     <>
