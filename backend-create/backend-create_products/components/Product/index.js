@@ -8,10 +8,19 @@ export default function Product() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading } = useSWR(`/api/products/${id}`);
+  const { data, isLoading, error } = useSWR(`/api/products/${id}`);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return (
+      <>
+        <h1>Page not found</h1>
+        <StyledLink href="/">Back to all</StyledLink>
+      </>
+    );
   }
 
   if (!data) {
