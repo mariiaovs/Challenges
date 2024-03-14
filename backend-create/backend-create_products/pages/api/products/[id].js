@@ -1,3 +1,4 @@
+import Review from "@/db/models/Review";
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
 
@@ -13,5 +14,17 @@ export default async function handler(request, response) {
     }
 
     response.status(200).json(product);
+  }
+
+  if (request.method === "POST") {
+    try {
+      const reviewData = request.body;
+      await Review.create(reviewData);
+
+      response.status(201).json({ status: "Review created" });
+    } catch (error) {
+      console.log(error);
+      response.status(400).json({ error: error.message });
+    }
   }
 }
