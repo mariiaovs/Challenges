@@ -19,7 +19,19 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     try {
       const reviewData = request.body;
-      await Review.create(reviewData);
+      const createdReview = await Review.create(reviewData);
+
+      const reviewId = createdReview._id;
+
+      const product = await Product.findById(id).populate("reviews");
+
+      if (!product) {
+        return response.status(404).json({ status: "Product not found" });
+      }
+
+      product.reviews.push(reviewId);
+
+      await product.save();
 
       response.status(201).json({ status: "Review created" });
     } catch (error) {

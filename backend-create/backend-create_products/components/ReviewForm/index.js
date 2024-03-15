@@ -3,7 +3,7 @@ import { StyledButton } from "../Button/Button.styled";
 import useSWR from "swr";
 
 export default function ReviewForm({ id }) {
-  const { mutate } = useSWR(`/api/${id}`);
+  const { mutate } = useSWR(`/api/products/${id}`);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -11,7 +11,7 @@ export default function ReviewForm({ id }) {
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/${id}`, {
+    const response = await fetch(`/api/products/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
