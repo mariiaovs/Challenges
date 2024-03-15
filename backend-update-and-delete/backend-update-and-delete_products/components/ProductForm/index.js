@@ -1,9 +1,9 @@
 import { StyledForm, StyledHeading, StyledLabel } from "./ProductForm.styled";
 import { StyledButton } from "../Button/Button.styled";
-import useSWR from "swr";
+//import useSWR from "swr";
 
-export default function ProductForm() {
-  const { mutate } = useSWR("/api/products");
+export default function ProductForm({ onSubmit, isEditMode, values }) {
+  /* const { mutate } = useSWR("/api/products");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -26,22 +26,40 @@ export default function ProductForm() {
 
     mutate();
     event.target.reset();
-  }
+  } */
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <StyledHeading>Add a new Fish</StyledHeading>
+    <StyledForm onSubmit={onSubmit}>
+      <StyledHeading>
+        {isEditMode ? "Edit the Fish" : "Add a new Fish"}
+      </StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
-        <input type="text" id="name" name="name" />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          defaultValue={values && values.name}
+        />
       </StyledLabel>
       <StyledLabel htmlFor="description">
         Description:
-        <input type="text" id="description" name="description" />
+        <input
+          type="text"
+          id="description"
+          name="description"
+          defaultValue={values && values.description}
+        />
       </StyledLabel>
       <StyledLabel htmlFor="price">
         Price:
-        <input type="number" id="price" name="price" min="0" />
+        <input
+          type="number"
+          id="price"
+          name="price"
+          min="0"
+          defaultValue={values && values.price}
+        />
       </StyledLabel>
       <StyledLabel htmlFor="currency">
         Currency:
