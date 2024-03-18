@@ -48,6 +48,11 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "DELETE") {
+    const product = await Product.findById(id);
+    product.reviews.forEach(async (review) => {
+      await Review.findByIdAndDelete(review);
+    });
+
     await Product.findByIdAndDelete(id);
 
     response.status(200).json({ status: "Product successfully deleted." });
